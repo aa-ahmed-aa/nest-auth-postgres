@@ -17,6 +17,13 @@ $ open http://localhost:3000 # To start sending some requests
  
 ```
 
+## Run e2e tests
+```bash
+# Make sure no container existed with the same name fudy_api in your docker context
+
+$ docker exec -it fudy_api npm run test:e2e
+
+```
 
 ## Requests
 
