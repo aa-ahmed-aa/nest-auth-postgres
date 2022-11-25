@@ -11,7 +11,7 @@ $ cp .env.example .env
 
 $ docker compose up --build
 
-$ open http://localhost:4040 #to open adminer and visualize the database
+$ open http://localhost:4040 # To open adminer and visualize the database
 
 $ open http://localhost:3000 # To start sending some requests 
  
@@ -20,4 +20,4 @@ $ open http://localhost:3000 # To start sending some requests
 
 ## Requests
 
-import `fudy.postman_collection.json` to your postman and start testing the app 
+import [fudy.postman_collection.json](https://github.com/aa-ahmed-aa/nest-auth-postgres/blob/master/fudy.postman_collection.json) to your postman and start testing the app 
