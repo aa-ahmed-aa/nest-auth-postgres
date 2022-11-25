@@ -9,7 +9,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Users } from './entities/users.entity';
 import { IUsers } from './interfaces/users.interface';
 import { UserDto } from './dto/user.dto';
-import { UserProfileDto } from './dto/user-profile.dto';
 
 @Injectable()
 export class UsersService {
@@ -32,38 +31,9 @@ export class UsersService {
     return user;
   }
 
-  public async findById(userId: number): Promise<Users> {
-    const user = await this.userRepository.findOne({
-      where: {
-        id: userId,
-      },
-    });
-
-    if (!user) {
-      throw new NotFoundException(`User #${userId} not found`);
-    }
-
-    return user;
-  }
-
   public async create(userDto: UserDto): Promise<IUsers> {
     try {
       return await this.userRepository.save(userDto);
-    } catch (err) {
-      throw new HttpException(err, HttpStatus.BAD_REQUEST);
-    }
-  }
-
-  public async updateProfileUser(
-    id: string,
-    userProfileDto: UserProfileDto,
-  ): Promise<Users> {
-    try {
-      const user = await this.userRepository.findOneBy({ id: +id });
-      user.name = userProfileDto.name;
-      user.email = userProfileDto.email;
-
-      return await this.userRepository.save(user);
     } catch (err) {
       throw new HttpException(err, HttpStatus.BAD_REQUEST);
     }

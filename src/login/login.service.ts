@@ -83,6 +83,9 @@ export class LoginService {
     return {
       expiresIn: 3600,
       token: jwt,
+      name: user.name,
+      email: user.email,
+      id: user.id,
     };
   }
 }

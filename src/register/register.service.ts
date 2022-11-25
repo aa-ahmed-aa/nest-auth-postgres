@@ -6,9 +6,7 @@ import { IUsers } from '../users/interfaces/users.interface';
 
 @Injectable()
 export class RegisterService {
-  constructor(
-    private readonly usersService: UsersService,
-  ) {}
+  constructor(private readonly usersService: UsersService) {}
 
   public async register(registerUserDto: RegisterUserDto): Promise<IUsers> {
     registerUserDto.password = bcrypt.hashSync(registerUserDto.password, 8);
